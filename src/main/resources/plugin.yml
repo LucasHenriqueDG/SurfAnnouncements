@@ -1,0 +1,10 @@
+name: SurfAnnouncements
+version: '1.0'
+main: me.luhen.surfAnnouncements.SurfAnnouncements
+api-version: '1.21'
+authors: [ LuHen ]
+description: Schedule custom messages to be sent to all the players on the server
+commands:
+  surfannouncements:
+    aliases: sa
+    usage: /sa reload

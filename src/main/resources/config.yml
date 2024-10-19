@@ -1,0 +1,9 @@
+#Should the message be sorted randomly?
+random-message: false
+#Use minimessage format instead of legacy color codes?
+#If you do not want to use components, you can set this to false and then use the "&" codes instead.
+component: true
+#time between each message
+time: 20
+messages:
+  - "<yellow>[Surf Announcements]</yellow> <red>Place your messages here.</red>"
