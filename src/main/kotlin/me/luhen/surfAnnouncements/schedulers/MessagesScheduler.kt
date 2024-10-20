@@ -23,29 +23,57 @@ object MessagesScheduler{
 
         scheduler = Bukkit.getScheduler().runTaskTimer(plugin, Runnable {
 
-            val isComponent = plugin.isComponent
+            if(plugin.isPaper) {
 
-            if(plugin.isRandom){
+                val isComponent = plugin.isComponent
 
-                currentMsg = plugin.messages.random()
+                if (plugin.isRandom) {
 
-            } else {
-
-                currentMsg = plugin.messages[plugin.msgNumber]
-
-                if(plugin.msgNumber == (plugin.messages.size - 1)){
-
-                    plugin.msgNumber = 0
+                    currentMsg = plugin.messages.random()
 
                 } else {
 
-                    plugin.msgNumber += 1
+                    currentMsg = plugin.messages[plugin.msgNumber]
+
+                    if (plugin.msgNumber == (plugin.messages.size - 1)) {
+
+                        plugin.msgNumber = 0
+
+                    } else {
+
+                        plugin.msgNumber += 1
+
+                    }
 
                 }
 
-            }
+                SendMessageFunction.sendTheMessage(currentMsg!!, isComponent)
 
-            SendMessageFunction.sendTheMessage(currentMsg!!, isComponent)
+            } else {
+
+                if (plugin.isRandom) {
+
+                    currentMsg = plugin.messages.random()
+
+                } else {
+
+                    currentMsg = plugin.messages[plugin.msgNumber]
+
+                    if (plugin.msgNumber == (plugin.messages.size - 1)) {
+
+                        plugin.msgNumber = 0
+
+                    } else {
+
+                        plugin.msgNumber += 1
+
+                    }
+
+                }
+
+                SendMessageFunction.sendTheMessage(currentMsg!!)
+
+            }
 
         },0L, 20L * SurfAnnouncements.instance.time)
 

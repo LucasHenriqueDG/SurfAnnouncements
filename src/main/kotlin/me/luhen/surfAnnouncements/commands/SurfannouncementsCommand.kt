@@ -24,12 +24,34 @@ object SurfannouncementsCommand:CommandExecutor {
 
                             ConfigFunctions.reloadFunction()
 
-                            if(sender is Player) sender.sendMessage(ParseFunctions.parseComponents(
-                                "<gradient:#47e7ff:#2fab24>" +
-                                        "[Surf Announcements]</gradient> <color:#ffa578>Config File reloaded</color>"
-                            ))
-                                else SurfAnnouncements.instance.logger.info("[Surf Announcements]" +
-                                    " Config File reloaded.")
+                            if(sender is Player) {
+
+                                if (SurfAnnouncements.instance.isPaper) {
+
+                                    sender.sendMessage(
+                                        ParseFunctions.parseComponents(
+                                            "<gradient:#47e7ff:#2fab24>" +
+                                                    "[Surf Announcements]</gradient> " +
+                                                    "<color:#ffa578>Config File reloaded</color>"
+                                        )
+                                    )
+
+                                } else {
+
+                                    sender.sendMessage(
+                                        "&b[Surf Announcements] " +
+                                                "&dConfig File reloaded"
+                                    )
+
+                                }
+
+                            } else {
+
+                                SurfAnnouncements.instance.logger.info("[Surf Announcements]" +
+                                        " Config File reloaded."
+                                )
+
+                            }
 
                         }
 
@@ -40,6 +62,7 @@ object SurfannouncementsCommand:CommandExecutor {
             }
 
         }
+
         return true
 
     }

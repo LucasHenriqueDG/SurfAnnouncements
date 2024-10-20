@@ -1,9 +1,11 @@
+#If your server runs in paper, you can use components
+
 #Should the message be sorted randomly?
 random-message: false
-#Use minimessage format instead of legacy color codes?
+#Use minimessage format instead of legacy color codes? ---REQUIRES PAPER---
 #If you do not want to use components, you can set this to false and then use the "&" codes instead.
 component: true
 #time between each message
 time: 20
 messages:
-  - "<yellow>[Surf Announcements]</yellow> <red>Place your messages here.</red>"
+  - "[Surf Announcements] Place your messages here."

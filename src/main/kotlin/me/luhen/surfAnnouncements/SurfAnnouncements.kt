@@ -2,6 +2,7 @@ package me.luhen.surfAnnouncements
 
 import me.luhen.surfAnnouncements.commands.SurfannouncementsCommand
 import me.luhen.surfAnnouncements.functions.ConfigFunctions
+import me.luhen.surfAnnouncements.functions.ServerFunctions
 import org.bukkit.plugin.java.JavaPlugin
 
 class SurfAnnouncements : JavaPlugin() {
@@ -16,6 +17,8 @@ class SurfAnnouncements : JavaPlugin() {
 
     var isRandom = false
 
+    var isPaper = false
+
     companion object {
 
         lateinit var instance: SurfAnnouncements
@@ -29,6 +32,9 @@ class SurfAnnouncements : JavaPlugin() {
     }
 
     override fun onEnable() {
+
+        isPaper = ServerFunctions.isPaperServer()
+
 
         saveDefaultConfig()
 

@@ -18,4 +18,16 @@ object SendMessageFunction {
 
     }
 
+    fun sendTheMessage(message: String){
+
+        val msg = ParseFunctions.parseLegacySpigot(message)
+
+        Bukkit.getOnlinePlayers().forEach {
+
+            it.sendMessage(msg)
+
+        }
+
+    }
+
 }
