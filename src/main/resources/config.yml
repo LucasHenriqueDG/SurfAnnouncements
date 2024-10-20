@@ -6,6 +6,8 @@ random-message: false
 #If you do not want to use components, you can set this to false and then use the "&" codes instead.
 component: true
 #time between each message
-time: 20
-messages:
-  - "[Surf Announcements] Place your messages here."
+time: 60
+messages: ["<gradient:#47e7ff:#2fab24>[Surf Announcements]</gradient> <red>This message require paper and component = true.</red>", "&b[Surf Announcements] &6This message does not require paper, but requires component = false."]
+
+# If you want to disable the messages, leave "messages" with only []
+# messages: []

@@ -21,61 +21,69 @@ object MessagesScheduler{
 
         var currentMsg: String?
 
-        scheduler = Bukkit.getScheduler().runTaskTimer(plugin, Runnable {
+        if(plugin.messages.size > 0) {
 
-            if(plugin.isPaper) {
+            scheduler = Bukkit.getScheduler().runTaskTimer(plugin, Runnable {
 
-                val isComponent = plugin.isComponent
+                if (plugin.isPaper) {
 
-                if (plugin.isRandom) {
+                    val isComponent = plugin.isComponent
 
-                    currentMsg = plugin.messages.random()
+                    if (plugin.isRandom) {
 
-                } else {
-
-                    currentMsg = plugin.messages[plugin.msgNumber]
-
-                    if (plugin.msgNumber == (plugin.messages.size - 1)) {
-
-                        plugin.msgNumber = 0
+                        currentMsg = plugin.messages.random()
 
                     } else {
 
-                        plugin.msgNumber += 1
+                        currentMsg = plugin.messages[plugin.msgNumber]
+
+                        if (plugin.msgNumber == (plugin.messages.size - 1)) {
+
+                            plugin.msgNumber = 0
+
+                        } else {
+
+                            plugin.msgNumber += 1
+
+                        }
 
                     }
 
-                }
-
-                SendMessageFunction.sendTheMessage(currentMsg!!, isComponent)
-
-            } else {
-
-                if (plugin.isRandom) {
-
-                    currentMsg = plugin.messages.random()
+                    SendMessageFunction.sendTheMessage(currentMsg!!, isComponent)
 
                 } else {
 
-                    currentMsg = plugin.messages[plugin.msgNumber]
+                    if (plugin.isRandom) {
 
-                    if (plugin.msgNumber == (plugin.messages.size - 1)) {
-
-                        plugin.msgNumber = 0
+                        currentMsg = plugin.messages.random()
 
                     } else {
 
-                        plugin.msgNumber += 1
+                        currentMsg = plugin.messages[plugin.msgNumber]
+
+                        if (plugin.msgNumber == (plugin.messages.size - 1)) {
+
+                            plugin.msgNumber = 0
+
+                        } else {
+
+                            plugin.msgNumber += 1
+
+                        }
 
                     }
 
+                    SendMessageFunction.sendTheMessage(currentMsg!!)
+
                 }
 
-                SendMessageFunction.sendTheMessage(currentMsg!!)
+            }, 0L, 20L * SurfAnnouncements.instance.time)
 
-            }
+        } else {
 
-        },0L, 20L * SurfAnnouncements.instance.time)
+            plugin.server.logger.info("[Surf Announcements] Your messages list is empty.")
+
+        }
 
     }
 
