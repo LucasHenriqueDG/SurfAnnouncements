@@ -3,6 +3,8 @@ version: '1.0'
 main: me.luhen.surfAnnouncements.SurfAnnouncements
 api-version: '1.21'
 authors: [ LuHen ]
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:2.0.0
 description: Schedule custom messages to be sent to all the players on the server
 commands:
   surfannouncements:
