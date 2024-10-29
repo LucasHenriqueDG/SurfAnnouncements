@@ -34,10 +34,9 @@ class SurfAnnouncements : JavaPlugin() {
     override fun onEnable() {
 
         isPaper = ServerFunctions.isPaperServer()
-
-
         saveDefaultConfig()
 
+        ConfigFunctions.setupDefaults()
         ConfigFunctions.updateMessages()
         ConfigFunctions.updateValues()
 

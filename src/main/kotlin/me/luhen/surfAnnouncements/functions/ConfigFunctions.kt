@@ -19,6 +19,20 @@ object ConfigFunctions {
 
     }
 
+    fun setupDefaults(){
+
+        val config = plugin.config
+
+        config.addDefault("random-message", "false")
+        config.addDefault("component", "true")
+        config.addDefault("time", "60")
+        config.addDefault("messages", listOf("<gradient:#47e7ff:#2fab24>[Surf Announcements]</gradient> <red>This message require paper and component = true.</red>", "&b[Surf Announcements] &6This message does not require paper, but requires component = false."))
+
+        config.options().copyDefaults(true)
+        plugin.saveConfig()
+
+    }
+
     fun updateMessages(){
 
         val plugin = SurfAnnouncements.instance
