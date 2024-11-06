@@ -5,7 +5,7 @@ import me.luhen.surfAnnouncements.schedulers.MessagesScheduler
 
 object ConfigFunctions {
 
-    val plugin = SurfAnnouncements.instance
+    private val plugin = SurfAnnouncements.instance
 
     fun reloadFunction(){
 

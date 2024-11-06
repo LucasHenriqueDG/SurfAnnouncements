@@ -2,7 +2,7 @@ package me.luhen.surfAnnouncements
 
 import me.luhen.surfAnnouncements.commands.SurfannouncementsCommand
 import me.luhen.surfAnnouncements.functions.ConfigFunctions
-import me.luhen.surfAnnouncements.functions.ServerFunctions
+import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bukkit.plugin.java.JavaPlugin
 
 class SurfAnnouncements : JavaPlugin() {
@@ -17,7 +17,7 @@ class SurfAnnouncements : JavaPlugin() {
 
     var isRandom = false
 
-    var isPaper = false
+    var adventure :BukkitAudiences? = null
 
     companion object {
 
@@ -33,7 +33,8 @@ class SurfAnnouncements : JavaPlugin() {
 
     override fun onEnable() {
 
-        isPaper = ServerFunctions.isPaperServer()
+        adventure = BukkitAudiences.create(this)
+
         saveDefaultConfig()
 
         ConfigFunctions.setupDefaults()
